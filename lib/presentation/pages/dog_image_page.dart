@@ -132,11 +132,6 @@ class _DogImagePageState extends State<DogImagePage> {
       body: Center(
         child: _buildBody(),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _isLoading ? null : _showNextDogImage,
-        icon: const Icon(Icons.refresh),
-        label: const Text('Nuovo Cane'),
-      ),
     );
   }
 
@@ -213,26 +208,23 @@ class _DogImagePageState extends State<DogImagePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              children: [
-                const Text(
-                  '🐕 Premi il pulsante per vedere un altro cane! 🐕',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                  textAlign: TextAlign.center,
+            padding: const EdgeInsets.all(24.0),
+            child: ElevatedButton.icon(
+              onPressed: _isLoading ? null : _showNextDogImage,
+              icon: const Text('🐕', style: TextStyle(fontSize: 24)),
+              label: const Text(
+                'Nuovo Cane',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32,
+                  vertical: 16,
                 ),
-                if (_cachedDogImage != null) ...[
-                  const SizedBox(height: 8),
-                  Text(
-                    '✨ Prossima immagine pronta!',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.green[700],
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ],
-              ],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
             ),
           ),
         ],
