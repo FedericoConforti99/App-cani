@@ -126,7 +126,8 @@ class _DogImagePageState extends State<DogImagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Random Dog Images'),
+        title: const Text('Cagnolini coccolosi'),
+        centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
